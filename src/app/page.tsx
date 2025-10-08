@@ -108,12 +108,27 @@ export default function Home() {
           
           {/* Mobile Menu Button */}
           <button 
-            className="text-[#FE299E] z-50 md:hidden"
+            className="text-[#FE299E] z-50 md:hidden relative w-6 h-6"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd" />
-            </svg>
+            <span className="sr-only">Menu</span>
+            <div className="absolute w-6 flex flex-col gap-1.5 transition-all duration-300">
+              <span 
+                className={`block h-0.5 w-full bg-current rounded transition-all duration-300 ${
+                  isMenuOpen ? 'rotate-45 translate-y-2' : ''
+                }`}
+              />
+              <span 
+                className={`block h-0.5 w-full bg-current rounded transition-all duration-300 ${
+                  isMenuOpen ? 'opacity-0' : ''
+                }`}
+              />
+              <span 
+                className={`block h-0.5 w-full bg-current rounded transition-all duration-300 ${
+                  isMenuOpen ? '-rotate-45 -translate-y-2' : ''
+                }`}
+              />
+            </div>
           </button>
         </div>
 
@@ -122,11 +137,11 @@ export default function Home() {
           <>
             {/* Overlay to close when clicking outside */}
             <div 
-              className="fixed inset-0 z-30"
+              className="fixed inset-0 z-30 top-12 md:top-16"
               onClick={() => setIsMenuOpen(false)}
             />
             {/* Menu */}
-            <div className="absolute top-12 right-4 md:top-16 md:right-6 bg-[#FE299E] rounded-lg shadow-lg z-40 p-4 min-w-[200px]">
+            <div className="fixed top-12 right-4 md:top-16 md:right-6 bg-[#FE299E] rounded-lg shadow-lg z-40 p-4 min-w-[200px]">
               <nav className="flex flex-col gap-3">
                 <Link 
                   href="#sobre-nosotros" 
@@ -186,7 +201,7 @@ export default function Home() {
             
             {/* Illustration 2 */}
             <div className="flex-shrink-0 -mt-8 md:mt-0 animate-slide-in-right">
-              <div className="w-[250px] sm:w-[300px] md:w-[400px] lg:w-[450px] xl:w-[500px]">
+              <div className="w-[250px] sm:w-[300px] md:w-[400px] lg:w-[450px] xl:w-[500px] md:-translate-x-32 lg:-translate-x-40 xl:-translate-x-48">
                 <Image
                   src="/assents/Ilustración 2 - Sin fondo.svg"
                   alt="Xispita Ilustração"
@@ -262,7 +277,11 @@ export default function Home() {
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-black mb-6 md:mb-8 text-center" style={{ fontFamily: 'var(--font-bricolage-extrabold)', opacity: '0.25' }}>SOBRE NOSOTROS</h2>
           
           <p className="text-black text-base md:text-lg lg:text-xl mb-8 md:mb-12 max-w-4xl mx-auto leading-relaxed text-center">
-            Es una marca de bebidas naturales y refrescantes que combina ingredientes exóticos como la pitaya y el coco para ofrecer una experiencia auténtica, saludable y vibrante. Más que una bebida, representa un estilo de vida dinámico y juvenil, inspirado en la frescura, la alegría y la innovación.
+            En Xispita celebramos la frescura, la alegría y el sabor natural de la vida. Somos una marca que nace con la idea de ofrecer bebidas auténticas, llenas de color, energía y buen gusto.
+            <br/><br/>
+            Creemos que cada momento puede volverse especial con algo sencillo: una bebida natural que te conecte con lo que te hace bien. Por eso cuidamos cada detalle, desde la elección de los ingredientes hasta la experiencia de disfrutarla.
+            <br/><br/>
+            Xispita es más que una marca. Es una invitación a disfrutar lo natural, a vivir con buena vibra y a compartir la frescura de lo auténtico.
           </p>
           
           {/* Carousel */}
