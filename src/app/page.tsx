@@ -28,11 +28,7 @@ export default function Home() {
         entries.forEach((entry) => {
           if (entry.target.id) {
             if (entry.isIntersecting) {
-              setVisibleSections((prev) => {
-                const newSet = new Set(prev);
-                newSet.add(entry.target.id);
-                return newSet;
-              });
+              setVisibleSections((prev) => new Set([...prev, entry.target.id]));
             } else {
               setVisibleSections((prev) => {
                 const newSet = new Set(prev);
@@ -43,16 +39,21 @@ export default function Home() {
           }
         });
       },
-      { threshold: 0.1, rootMargin: '0px' }
+      { 
+        threshold: 0.01,
+        rootMargin: '100px 0px 100px 0px'
+      }
     );
 
-    // Wait for DOM to be ready
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       const elements = document.querySelectorAll('[data-animate-scroll]');
       elements.forEach((el) => observer.observe(el));
-    }, 100);
+    }, 500);
 
-    return () => observer.disconnect();
+    return () => {
+      clearTimeout(timer);
+      observer.disconnect();
+    };
   }, []);
 
   const nextSlide = () => {
