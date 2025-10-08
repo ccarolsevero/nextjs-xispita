@@ -17,6 +17,9 @@ const bricolageGrotesqueExtrabold = Bricolage_Grotesque({
 export const metadata: Metadata = {
   title: "Xispita - Bebidas Naturales y Refrescantes",
   description: "Xispita - Una marca de bebidas naturales y refrescantes",
+  icons: {
+    icon: '/favicon.svg',
+  },
 };
 
 export default function RootLayout({
