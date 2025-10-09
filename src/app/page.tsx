@@ -362,26 +362,11 @@ export default function Home() {
 
       {/* Limonada de Coco Section with Text Background */}
       <section className="bg-[#99D700] min-h-[400px] sm:min-h-[500px] md:min-h-[600px] flex items-center justify-center px-4 py-8 md:py-12 lg:py-16 relative">
-        {/* Limonada Text Background */}
-        <div className="w-[90%] flex items-center justify-center relative z-0">
-          <h2 
-            id="limonada-text"
-            data-animate-scroll
-            className="text-black text-[12vw] sm:text-[11vw] md:text-[10vw] lg:text-[9vw] font-extrabold leading-none text-center whitespace-nowrap animate-slide-in"
-            style={{ 
-              fontFamily: 'var(--font-bricolage-extrabold)',
-              opacity: '0'
-            }}
-          >
-            COCO Y LIMÓN
-          </h2>
-        </div>
-        
-        {/* Lata 2 Image - Overlayed */}
+        {/* Lata 2 Image - Background */}
         <div 
           id="limonada-image"
           data-animate-scroll
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250px] sm:w-[300px] md:w-[400px] lg:w-[500px] z-10 animate-slide-in-right"
+          className={`absolute top-1/2 left-1/2 -translate-y-1/2 w-[250px] sm:w-[300px] md:w-[400px] lg:w-[500px] z-0 transition-all duration-1500 ${visibleSections.has('limonada-image') ? 'opacity-100 -translate-x-1/2' : 'opacity-100 translate-x-full'}`}
         >
           <Image
             src="/assents/Fotos de productos/Lata 2.png"
@@ -391,6 +376,20 @@ export default function Home() {
             className="w-full h-auto"
             priority
           />
+        </div>
+        
+        {/* Limonada Text - Over Image */}
+        <div className="w-[90%] flex items-center justify-center relative z-10">
+          <h2 
+            id="limonada-text"
+            data-animate-scroll
+            className={`text-black text-[12vw] sm:text-[11vw] md:text-[10vw] lg:text-[9vw] font-extrabold leading-none text-center whitespace-nowrap transition-all duration-1500 ${visibleSections.has('limonada-text') ? 'opacity-15 translate-x-0' : 'opacity-15 -translate-x-full'}`}
+            style={{ 
+              fontFamily: 'var(--font-bricolage-extrabold)'
+            }}
+          >
+            COCO Y LIMÓN
+          </h2>
         </div>
       </section>
 
