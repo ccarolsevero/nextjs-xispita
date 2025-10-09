@@ -88,6 +88,24 @@ section {
   animation: slideInFromRight 1.2s ease-out forwards;
 }
 
+.animate-on-scroll-right {
+  opacity: 1;
+  transform: translateX(100%);
+}
+
+.animate-on-scroll-right.visible {
+  animation: slideInFromRight 1.2s ease-out forwards;
+}
+
+.animate-on-scroll-left {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+.animate-on-scroll-left.visible {
+  animation: slideInFromLeftOpacity 1.5s ease-out forwards;
+}
+
 .animate-slide-in-left {
   animation: slideInFromLeft 1.2s ease-out forwards;
   opacity: 0;

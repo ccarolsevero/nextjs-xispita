@@ -28,9 +28,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es">
+    <html lang="es" className="overflow-x-hidden">
       <body
-        className={`${bricolageGrotesqueLight.variable} ${bricolageGrotesqueExtrabold.variable} antialiased`}
+        className={`${bricolageGrotesqueLight.variable} ${bricolageGrotesqueExtrabold.variable} antialiased overflow-x-hidden`}
         style={{ fontFamily: 'var(--font-bricolage-light)' }}
       >
         {children}

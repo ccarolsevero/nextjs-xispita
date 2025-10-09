@@ -38,13 +38,20 @@ export default function Home() {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.target.id) {
-            if (entry.isIntersecting) {
-              setVisibleSections((prev) => new Set([...prev, entry.target.id]));
-            } else {
+          const element = entry.target as HTMLElement;
+          if (entry.isIntersecting) {
+            // Add visible class to trigger animation
+            element.classList.add('visible');
+            if (element.id) {
+              setVisibleSections((prev) => new Set([...prev, element.id]));
+            }
+          } else {
+            // Remove visible class to reset animation
+            element.classList.remove('visible');
+            if (element.id) {
               setVisibleSections((prev) => {
                 const newSet = new Set(prev);
-                newSet.delete(entry.target.id);
+                newSet.delete(element.id);
                 return newSet;
               });
             }
@@ -93,7 +100,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen overflow-x-hidden">
       {/* Header */}
       <header className="relative">
         {/* Top yellow strip */}
@@ -363,7 +370,11 @@ export default function Home() {
       {/* Limonada de Coco Section with Text Background */}
       <section className="bg-[#99D700] min-h-[400px] sm:min-h-[500px] md:min-h-[600px] flex items-center justify-center px-4 py-8 md:py-12 lg:py-16 relative">
         {/* Lata 2 Image - Background */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250px] sm:w-[300px] md:w-[400px] lg:w-[500px] z-0 animate-slide-in-right">
+        <div 
+          id="limonada-image"
+          data-animate-scroll
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250px] sm:w-[300px] md:w-[400px] lg:w-[500px] z-0 animate-on-scroll-right"
+        >
           <Image
             src="/assents/Fotos de productos/Lata 2.png"
             alt="Limonada de Coco Xispita"
@@ -377,10 +388,11 @@ export default function Home() {
         {/* Limonada Text - Over Image */}
         <div className="w-[90%] flex items-center justify-center relative z-10">
           <h2 
-            className="text-black text-[12vw] sm:text-[11vw] md:text-[10vw] lg:text-[9vw] font-extrabold leading-none text-center whitespace-nowrap animate-slide-in"
+            id="limonada-text"
+            data-animate-scroll
+            className="text-black text-[12vw] sm:text-[11vw] md:text-[10vw] lg:text-[9vw] font-extrabold leading-none text-center whitespace-nowrap animate-on-scroll-left"
             style={{ 
-              fontFamily: 'var(--font-bricolage-extrabold)',
-              opacity: '0'
+              fontFamily: 'var(--font-bricolage-extrabold)'
             }}
           >
             COCO Y LIMÓN
