@@ -10,7 +10,7 @@ export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [currentProductSlide, setCurrentProductSlide] = useState(0);
   const [currentLimonadaSlide, setCurrentLimonadaSlide] = useState(0);
-  const images = ['/assents/1.png', '/assents/2.png', '/assents/3.png'];
+  const images = ['/assents/1.png', '/assents/2.png', '/assents/3.png', '/assents/Design5.png', '/assents/Design6.png', '/assents/Design7.png'];
   const productImages = [
     '/assents/Fotos de productos/Botella 1.png',
     '/assents/Fotos de productos/Lata 1.png',
@@ -217,8 +217,8 @@ export default function Home() {
                     width={900}
                     height={450}
                     className="mx-auto w-full max-w-[350px] sm:max-w-[450px] md:max-w-[600px] lg:max-w-[650px] xl:max-w-[800px] h-auto"
-                    priority
-                  />
+          priority
+        />
           </div>
           
           {/* White text and illustration side by side */}
@@ -293,8 +293,8 @@ export default function Home() {
       {/* New Pink Section */}
       <section className="bg-[#FE299E] min-h-[400px] px-4 md:px-6 py-8 md:py-12 lg:py-16">
         <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-            {/* Product Slider - Left Side */}
+          <div className="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-12">
+            {/* Product Slider - Right Side */}
             <div className="relative max-w-md w-full md:w-1/2 flex-shrink-0">
             <div className="overflow-hidden rounded-lg">
               <div 
@@ -303,7 +303,7 @@ export default function Home() {
               >
                 {productImages.map((img, index) => (
                   <div key={index} className="min-w-full">
-                    <Image
+            <Image
                       src={img}
                       alt={`Producto ${index + 1}`}
                       width={500}
@@ -368,34 +368,29 @@ export default function Home() {
       </section>
 
       {/* Limonada de Coco Section with Text Background */}
-      <section className="bg-[#99D700] min-h-[400px] sm:min-h-[500px] md:min-h-[600px] flex items-center justify-center px-4 py-8 md:py-12 lg:py-16 relative">
-        {/* Lata 2 Image - Background */}
-        <div 
-          id="limonada-image"
-          data-animate-scroll
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250px] sm:w-[300px] md:w-[400px] lg:w-[500px] z-0 animate-on-scroll-right"
-        >
-          <Image
-            src="/assents/Fotos de productos/Lata 2.png"
-            alt="Limonada de Coco Xispita"
-            width={600}
-            height={600}
-            className="w-full h-auto"
-            priority
-          />
-        </div>
-        
-        {/* Limonada Text - Over Image */}
-        <div className="w-[90%] flex items-center justify-center relative z-10">
+      <section className="bg-[#99D700] min-h-[300px] sm:min-h-[350px] md:min-h-[400px] flex items-center justify-center px-4 py-8 md:py-12 lg:py-16">
+        <div className="w-[90%] flex items-center justify-center">
           <h2 
-            id="limonada-text"
-            data-animate-scroll
-            className="text-black text-[12vw] sm:text-[11vw] md:text-[10vw] lg:text-[9vw] font-extrabold leading-none text-center whitespace-nowrap animate-on-scroll-left"
+            className="text-black text-[12vw] sm:text-[11vw] md:text-[10vw] lg:text-[9vw] font-extrabold leading-none text-center flex"
             style={{ 
-              fontFamily: 'var(--font-bricolage-extrabold)'
+              fontFamily: 'var(--font-bricolage-extrabold)',
+              opacity: '0.15'
             }}
           >
-            COCO Y LIMÓN
+            <span 
+              id="limonada-text-left"
+              data-animate-scroll
+              className={`transition-all duration-1500 ${visibleSections.has('limonada-text-left') ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'}`}
+            >
+              COCO&nbsp;Y&nbsp;
+            </span>
+            <span 
+              id="limonada-text-right"
+              data-animate-scroll
+              className={`transition-all duration-1500 ${visibleSections.has('limonada-text-right') ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'}`}
+            >
+              LIMÓN
+            </span>
           </h2>
         </div>
       </section>
@@ -403,8 +398,8 @@ export default function Home() {
       {/* Limonada Product Details Section */}
       <section className="bg-[#99D700] min-h-[400px] px-4 md:px-6 py-8 md:py-12 lg:py-16">
         <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-            {/* Product Slider - Left Side */}
+          <div className="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-12">
+            {/* Product Slider - Right Side */}
             <div className="relative max-w-md w-full md:w-1/2 flex-shrink-0">
               <div className="overflow-hidden rounded-lg">
                 <div 
