@@ -367,9 +367,10 @@ export default function Home() {
           <h2 
             id="limonada-text"
             data-animate-scroll
-            className={`text-black text-[12vw] sm:text-[11vw] md:text-[10vw] lg:text-[9vw] font-extrabold leading-none text-center transition-all duration-1500 whitespace-nowrap ${visibleSections.has('limonada-text') ? 'opacity-15 translate-x-0' : 'opacity-0 -translate-x-full'}`}
+            className="text-black text-[12vw] sm:text-[11vw] md:text-[10vw] lg:text-[9vw] font-extrabold leading-none text-center whitespace-nowrap animate-slide-in"
             style={{ 
-              fontFamily: 'var(--font-bricolage-extrabold)'
+              fontFamily: 'var(--font-bricolage-extrabold)',
+              opacity: '0'
             }}
           >
             COCO Y LIMÓN
@@ -380,7 +381,7 @@ export default function Home() {
         <div 
           id="limonada-image"
           data-animate-scroll
-          className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250px] sm:w-[300px] md:w-[400px] lg:w-[500px] z-10 transition-all duration-1500 ${visibleSections.has('limonada-image') ? 'opacity-100' : 'opacity-0 translate-x-full'}`}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250px] sm:w-[300px] md:w-[400px] lg:w-[500px] z-10 animate-slide-in-right"
         >
           <Image
             src="/assents/Fotos de productos/Lata 2.png"
@@ -388,6 +389,7 @@ export default function Home() {
             width={600}
             height={600}
             className="w-full h-auto"
+            priority
           />
         </div>
       </section>
