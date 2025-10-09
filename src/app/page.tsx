@@ -380,7 +380,7 @@ export default function Home() {
         <div 
           id="limonada-image"
           data-animate-scroll
-          className={`absolute top-1/2 left-1/2 -translate-y-1/2 w-[250px] sm:w-[300px] md:w-[400px] lg:w-[500px] z-10 transition-all duration-1500 ${visibleSections.has('limonada-image') ? 'opacity-100 -translate-x-1/2' : 'opacity-0 translate-x-full'}`}
+          className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250px] sm:w-[300px] md:w-[400px] lg:w-[500px] z-10 transition-all duration-1500 ${visibleSections.has('limonada-image') ? 'opacity-100' : 'opacity-0 translate-x-full'}`}
         >
           <Image
             src="/assents/Fotos de productos/Lata 2.png"
